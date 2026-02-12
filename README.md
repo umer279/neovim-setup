@@ -15,10 +15,12 @@ map("n", "gr", vim.lsp.buf.references, "LSP: Go to References")
 map("n", "K", vim.lsp.buf.hover, "LSP: Hover Documentation")
 map("n", "<leader>ca", vim.lsp.buf.code_action, "LSP: Code Action")
 map("n", "<leader>rn", vim.lsp.buf.rename, "LSP: Rename Symbol")
+map("n", "<leader>e", vim.diagnostic.open_float, "Show diagnostics")
 
 vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>")
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set('n', '<leader>i', 'gg=G')
 ```
 
 ------------------------------------------------------------------------

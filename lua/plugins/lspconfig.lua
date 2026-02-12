@@ -59,6 +59,7 @@ return {
       map("n", "K", vim.lsp.buf.hover, "LSP: Hover Documentation")
       map("n", "<leader>ca", vim.lsp.buf.code_action, "LSP: Code Action")
       map("n", "<leader>rn", vim.lsp.buf.rename, "LSP: Rename Symbol")
+      map("n", "<leader>e", vim.diagnostic.open_float, "Show diagnostics")
     end,
   },
 }

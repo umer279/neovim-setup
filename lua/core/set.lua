@@ -7,3 +7,4 @@ vim.opt.tabstop = 2       -- A tab counts for 2 spaces
 vim.opt.smartindent = true -- Enable smart indentation logic
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>') -- Clear highlighting
+vim.keymap.set('n', '<leader>i', 'gg=G')
