@@ -10,6 +10,7 @@ map("n", "<leader>ca", vim.lsp.buf.code_action, "LSP: Code Action")
 map("n", "<leader>rn", vim.lsp.buf.rename, "LSP: Rename Symbol")
 
 vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>")
+vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 ```
 

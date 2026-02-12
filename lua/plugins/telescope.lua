@@ -25,5 +25,6 @@ return {
     
     -- Add a keymap so you can actually open it
     vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>")
+    vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
   end,
 }
