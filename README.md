@@ -1,5 +1,12 @@
 # Neovim Setup
 
+## Prerequisites
+
+```
+- brew install neovim
+- brew install ripgrep
+```
+
 ## LSP Keymaps
 
 ``` lua
