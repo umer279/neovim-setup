@@ -3,8 +3,8 @@
 ## Prerequisites
 
 ```
-- brew install neovim
-- brew install ripgrep
+brew install neovim
+brew install ripgrep
 ```
 
 ## LSP Keymaps
