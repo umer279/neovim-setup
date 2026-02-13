@@ -17,8 +17,22 @@ return {
     },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "ts_ls" }, -- Ensure the base server is there
+        ensure_installed = { "ts_ls", "yamlls" }, -- Ensure the base server is there
       })
+      -- --- YAML LSP SETUP START ---
+      vim.lsp.config("yamlls", {
+        settings = {
+          yaml = {
+            schemas = {
+              ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+            },
+          },
+        },
+      })
+
+      -- Enable the config
+      vim.lsp.enable("yamlls")
+      -- --- YAML LSP SETUP END ---
     end,
   },
 
