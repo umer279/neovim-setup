@@ -26,7 +26,7 @@ return {
 							default = "qwen3.5:cloud",
 						},
 						num_ctx = {
-							default = 16384,
+							default = 2048,
 						},
 						-- Add inline-specific parameters if needed
 					},
