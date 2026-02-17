@@ -111,5 +111,10 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 ### 17. Help
 
 - `:help` → open help\
-- `Ctrl + w` → switch window\
 - `:help topic` → open specific help
+
+### 18. New Windows
+
+- `:new` → new horizzontal window
+- `:vnew` → new vertical window
+- `Ctrl + w` → switch window\
