@@ -33,6 +33,21 @@ map("n", "<leader>rn", vim.lsp.buf.rename, "LSP: Rename Symbol")
 map("n", "<leader>e", vim.diagnostic.open_float, "Show diagnostics")
 ```
 
+## Terminal Keymaps
+
+`Ctrl + \` - open or close terminal
+
+```lua
+-- 1. Command for Floating Terminal
+    vim.keymap.set('n', '<leader>tf', '<cmd>1ToggleTerm direction=float<cr>', {desc = "Terminal Float"})
+
+    -- 2. Command for Classic (Horizontal) Terminal
+    vim.keymap.set('n', '<leader>th', '<cmd>2ToggleTerm direction=horizontal<cr>', {desc = "Terminal Horizontal"})
+
+    -- 3. Command for Vertical (Optional, if you like side-by-side)
+    vim.keymap.set('n', '<leader>tv', '<cmd>3ToggleTerm direction=vertical size=60<cr>', {desc = "Terminal Vertical"})
+```
+
 ## AI Assistant
 
 Require Ollama with `qwen3.5:cloud` model (requires sign-in) or update config in `lua/plugins/codecompanion.lua`:
@@ -146,3 +161,8 @@ Require Ollama with `qwen3.5:cloud` model (requires sign-in) or update config in
 - `:new` - new horizontal window
 - `:vnew` - new vertical window
 - `Ctrl + w` - switch window
+
+### 19. Comment Code Blcok
+
+- `cbb` - comment line
+- `cb` - comment selection
