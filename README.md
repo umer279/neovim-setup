@@ -164,5 +164,5 @@ Require Ollama with `qwen3.5:cloud` model (requires sign-in) or update config in
 
 ### 19. Comment Code Blcok
 
-- `cbb` - comment line
-- `cb` - comment selection
+- `gcc` - comment line
+- `gc` - comment selection
