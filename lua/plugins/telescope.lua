@@ -36,8 +36,8 @@ return {
 		vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>")
 		vim.keymap.set("n", "<leader>ff", function()
 			require("telescope.builtin").find_files({
-				hidden = true,
-				no_ignore = true,
+				hidden = false,
+				no_ignore = false,
 			})
 		end)
 		-- "Deep" search (finds EVERYTHING)
