@@ -31,22 +31,21 @@ return {
 				dapui.close()
 			end
 
-			-- 1. Define the adapter
+			-- Adapters
 			dap.adapters["pwa-node"] = {
 				type = "server",
 				host = "localhost",
 				port = "${port}",
 				executable = {
 					command = "node",
-					-- Mason usually installs it here:
 					args = {
 						vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
 						"${port}",
 					},
 				},
 			}
-			dap.adapters.node = dap.adapters["pwa-node"]
 
+			-- Launch Configs
 			local chimera_config = {
 				type = "pwa-node",
 				request = "launch",
@@ -67,7 +66,7 @@ return {
 			}
 
 			local catalog_script_config = {
-				type = "node",
+				type = "pwa-node",
 				request = "launch",
 				name = "Debug Catalog Script",
 				skipFiles = { "<node_internals>/**" },
