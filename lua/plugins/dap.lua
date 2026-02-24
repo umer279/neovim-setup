@@ -47,25 +47,47 @@ return {
 			}
 			dap.adapters.node = dap.adapters["pwa-node"]
 
-			-- 2. Configure for Javascript/Typescript
 			local chimera_config = {
 				type = "pwa-node",
 				request = "launch",
-				name = "Debug Local Tests",
+				name = "Debug Chimera Tests",
 				runtimeExecutable = "npm",
 				runtimeArgs = { "run-script", "chimera:web-debug", "--", "${fileBasename}" },
-				env = { test_env = "local" },
+				env = function()
+					local env_input = vim.fn.input("Target Environment (default: local): ")
+					if env_input == "" then
+						env_input = "local"
+					end
+					return { test_env = env_input }
+				end,
 				rootPath = "${workspaceFolder}",
 				cwd = "${workspaceFolder}",
 				console = "integratedTerminal",
 				skipFiles = { "<node_internals>/**" },
 			}
 
-			dap.configurations.javascript = { chimera_config }
-			dap.configurations.typescript = { chimera_config }
+			local catalog_script_config = {
+				type = "node",
+				request = "launch",
+				name = "Debug Catalog Script",
+				skipFiles = { "<node_internals>/**" },
+				cwd = "${workspaceFolder}/scripts",
+				program = "${workspaceFolder}/scripts/src/main.ts",
+				runtimeArgs = {
+					"--experimental-strip-types",
+					"--env-file=../.env",
+				},
+				env = {
+					FASTIFY_AUTOLOAD_TYPESCRIPT = "1",
+				},
+				console = "integratedTerminal",
+			}
+
+			dap.configurations.javascript = { chimera_config, catalog_script_config }
+			dap.configurations.typescript = { chimera_config, catalog_script_config }
 
 			-- Keybindings
-			vim.keymap.set("n", "<leader>ds", function()
+			vim.keymap.set("n", "<leader>dc", function()
 				dap.continue()
 			end, { desc = "Debug: Start" })
 			vim.keymap.set("n", "<leader>db", function()
@@ -80,7 +102,7 @@ return {
 			vim.keymap.set("n", "<leader>dr", function()
 				dap.restart()
 			end, { desc = "Debug: Restart" })
-			vim.keymap.set("n", "<leader>dq", function()
+			vim.keymap.set("n", "<leader>dt", function()
 				dap.terminate()
 				require("dapui").close()
 			end, { desc = "Debug: Terminate session" })
