@@ -86,25 +86,22 @@ return {
 			dap.configurations.typescript = { chimera_config, catalog_script_config }
 
 			-- Keybindings
-			vim.keymap.set("n", "<leader>dc", function()
-				dap.continue()
-			end, { desc = "Debug: Start" })
-			vim.keymap.set("n", "<leader>db", function()
-				dap.toggle_breakpoint()
-			end, { desc = "Debug: Breakpoint" })
-			vim.keymap.set("n", "<leader>do", function()
-				dap.step_over()
-			end, { desc = "Debug: Step Over" })
-			vim.keymap.set("n", "<leader>di", function()
-				dap.step_into()
-			end, { desc = "Debug: Step Into" })
-			vim.keymap.set("n", "<leader>dr", function()
-				dap.restart()
-			end, { desc = "Debug: Restart" })
-			vim.keymap.set("n", "<leader>dt", function()
+			-- The "Navigation" Group
+			vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "Debug: [C]ontinue" })
+			vim.keymap.set("n", "<leader>dn", dap.step_over, { desc = "Debug: [N]ext (Step Over)" })
+			vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "Debug: Step [I]nto" })
+			vim.keymap.set("n", "<leader>du", dap.step_out, { desc = "Debug: Step [U]p/Out" })
+			-- The "Setting" Group
+			vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Debug: Toggle [B]reakpoint" })
+			vim.keymap.set("n", "<leader>dB", function()
+				dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+			end, { desc = "Debug: Set Conditional [B]reakpoint" })
+			-- The "Control" Group
+			vim.keymap.set("n", "<leader>dx", function()
 				dap.terminate()
 				require("dapui").close()
-			end, { desc = "Debug: Terminate session" })
+			end, { desc = "Debug: [X] Terminate" })
+			vim.keymap.set("n", "<leader>dr", dap.repl.open, { desc = "Debug: Open [R]EPL" })
 		end,
 	},
 }

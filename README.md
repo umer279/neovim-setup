@@ -48,6 +48,29 @@ map("n", "<leader>e", vim.diagnostic.open_float, "Show diagnostics")
     vim.keymap.set('n', '<leader>tv', '<cmd>3ToggleTerm direction=vertical size=60<cr>', {desc = "Terminal Vertical"})
 ```
 
+## DAP Keymaps
+
+```lua
+-- The "Navigation" Group
+vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "Debug: [C]ontinue" })
+vim.keymap.set("n", "<leader>dn", dap.step_over, { desc = "Debug: [N]ext (Step Over)" })
+vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "Debug: Step [I]nto" })
+vim.keymap.set("n", "<leader>du", dap.step_out, { desc = "Debug: Step [U]p/Out" })
+
+-- The "Setting" Group
+vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Debug: Toggle [B]reakpoint" })
+vim.keymap.set("n", "<leader>dB", function()
+    dap.set_breakpoint(vim.fn.input('Breakpoint condition: '))
+end, { desc = "Debug: Set Conditional [B]reakpoint" })
+
+-- The "Control" Group
+vim.keymap.set("n", "<leader>dx", function()
+    dap.terminate()
+    require("dapui").close()
+end, { desc = "Debug: [X] Terminate" })
+vim.keymap.set("n", "<leader>dr", dap.repl.open, { desc = "Debug: Open [R]EPL" })
+```
+
 ## AI Assistant
 
 Require Ollama with `qwen3.5:cloud` model (requires sign-in) or update config in `lua/plugins/codecompanion.lua`:
