@@ -119,8 +119,8 @@ Require Ollama with `qwen3.5:cloud` model (requires sign-in) or update config in
 - `number + G` - go to specific line
 - `[[` - jump back block/class
 - `]]` - jump forward blick/class
-- `]m` - jump back function
-- `[m` - jump forward function
+- `[m` - jump back function
+- `]m` - jump forward function
 
 ### 5. Paste
 
