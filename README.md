@@ -69,6 +69,13 @@ vim.keymap.set("n", "<leader>dx", function()
     require("dapui").close()
 end, { desc = "Debug: [X] Terminate" })
 vim.keymap.set("n", "<leader>dr", dap.repl.open, { desc = "Debug: Open [R]EPL" })
+vim.keymap.set('n', '<Leader>dh', function()
+  require('dap.ui.widgets').hover()
+end, { desc = "Debugger Hover" })
+vim.keymap.set('n', '<Leader>ds', function()
+  local widgets = require('dap.ui.widgets')
+  widgets.centered_float(widgets.scopes)
+end, { desc = "Debugger Scopes" })
 ```
 
 ## AI Assistant
