@@ -121,6 +121,14 @@ Require Ollama with `qwen3.5:cloud` model (requires sign-in) or update config in
 - `]]` - jump forward blick/class
 - `[m` - jump back function
 - `]m` - jump forward function
+- `f{char}` - Jump forward and land directly on the next occurrence of {char}
+- `t{char}` - Jump forward and land until (just before) the next {char}
+- `F{char} / T{char}` - The same as above, but moving backward.
+- `;` - Repeat the last f, t, F, or T jump. This is a massive time-saver.
+- `e` - Jump to the end of the next word
+- `b` - Jump backward to the start of the word
+- `^` - First non-blank character (perfect for indented code)
+- `g_` - Last non-blank character of the line (ignores trailing spaces).
 
 ### 5. Paste
 
