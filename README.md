@@ -80,16 +80,45 @@ end, { desc = "Debugger Scopes" })
 
 ## AI Assistant
 
-Require Ollama with `qwen3.5:cloud` model (requires sign-in) or update config in `lua/plugins/codecompanion.lua`:
+Requires GEMINI_API_KEY or chenge the model from `plugins/avante.lua`
 
-```bash
-:CodeCompanion prompt
-:CodeCompanionChat
-:CodeCompanionActions
-:CodeCompanionCmd
-```
+### ⌨️ Avante.nvim Quick Reference (2026)
 
-> **Note:** The `qwen3.5:cloud` model requires authentication. Sign in to your Ollama account or switch to a local model if preferred.
+#### 🚀 Core Actions
+| Key | Mode | Action |
+| :--- | :--- | :--- |
+| `<leader>aa` | Normal | **Toggle Chat**: Open/Close the AI sidebar. |
+| `<leader>ae` | Visual | **Inline Edit**: Highlight code + ask for changes. |
+| `<leader>af` | Normal | **Focus**: Jump cursor into the chat window. |
+| `<leader>ar` | Normal | **Refresh**: Clear chat history (reset memory). |
+
+---
+
+#### 🛠️ The Diff Workflow (Applying Changes)
+When you use `<leader>ae`, Gemini shows a "Diff". Use these to handle it:
+
+* **`<leader>au`** : **Accept** — Apply the AI's change to your code.
+* **`<leader>an`** : **Reject** — Discard the AI's change.
+* **`co`** : **Choose Ours** — Keep your original line in a conflict.
+* **`ct`** : **Choose Theirs** — Keep the AI's line in a conflict.
+
+---
+
+#### 💬 Inside the Chat Window
+| Key | Action |
+| :--- | :--- |
+| **`Ctrl + s`** | **Submit**: Send your message to Gemini. |
+| **`Tab`** | Cycle focus between Input box and History. |
+| **`@`** | **Mention**: Add specific files to the context. |
+| **`[[` / `]]`** | Jump between code blocks in the conversation. |
+| **`q`** | Close the sidebar immediately. |
+
+---
+
+#### ⚠️ Pro-Tips
+1. **Submit via Ctrl+S:** In the inline edit box (`<leader>ae`), pressing Enter usually just adds a new line. You **must** use `Ctrl + s` to send the command.
+2. **Context Matters:** Type `@` in the chat to pick files from your project. This helps Gemini understand how your functions interact with other files.
+3. **Rate Limits:** If you see "Rate limit reached," wait 10 seconds. Gemini 2.0 Flash (Free) allows roughly 10-15 requests per minute.
 
 ## Useful Vim Commands
 
