@@ -12,6 +12,19 @@ return {
 			lua = { "stylua" },
 			-- You can add more as needed
 		},
+		formatters = {
+			prettier = {
+				prepend_args = {
+					"--tab-width",
+					"--use-tabs",
+					"false",
+					"--yaml-indent-size",
+					"2",
+					"--single-quote",
+					"false",
+				},
+			},
+		},
 		-- This part is key: it formats automatically when you save
 		format_on_save = {
 			timeout_ms = 500,
