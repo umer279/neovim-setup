@@ -15,3 +15,8 @@ vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
 -- Jump to the previous diagnostic
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous Diagnostic" })
+
+-- Delete all buffers
+vim.keymap.set("n", "<leader>ba", ":%bd<CR>", { desc = "Delete all buffers" })
+-- Delete all buffers EXCEPT the current one
+vim.keymap.set("n", "<leader>bo", ":%bd|e#|bd#<CR>", { desc = "Delete other buffers" })
