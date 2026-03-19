@@ -10,3 +10,8 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>") -- Clear highlighting
 
 vim.keymap.set("n", "<Tab>", ":bnext<CR>")
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
+
+-- Jump to the next diagnostic (Error/Warn/Info)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
+-- Jump to the previous diagnostic
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous Diagnostic" })
